@@ -12,7 +12,7 @@ public class Main {
         Callable<String> myCallable2 = new MyCallable("Задание 2", 7);
         Callable<String> myCallable3 = new MyCallable("Задание 3", 4);
         Callable<String> myCallable4 = new MyCallable("Задание 4", 4);
-        final ExecutorService threadPool = Executors.newFixedThreadPool(4);
+        final ExecutorService threadPool = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 // Используем методы submit() и get() для исполнения задач и получения результата.
         System.out.println("Результат использования методов submit() и get():");
         final Future<String> task1 = threadPool.submit(myCallable1);
