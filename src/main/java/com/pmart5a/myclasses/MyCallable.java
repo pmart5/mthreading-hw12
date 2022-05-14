@@ -3,8 +3,11 @@ package com.pmart5a.myclasses;
 import java.util.concurrent.Callable;
 
 public class MyCallable implements Callable<String> {
+
+    public final int DELAY_TIME = 2000;
     private final String nameTask;
     private final int numberOfMessages;
+
 
     public MyCallable(String nameTask, int numberOfMessages) {
         this.nameTask = nameTask;
@@ -15,7 +18,7 @@ public class MyCallable implements Callable<String> {
     public String call() throws InterruptedException {
         int numberOfMessagesSent = 0;
         for (int i = 0; i < numberOfMessages; i++) {
-            Thread.sleep(2000);
+            Thread.sleep(DELAY_TIME);
             System.out.printf("Я %s. Выполняю %s. Это %d сообщение из %d.\n", Thread.currentThread().getName(), nameTask,
                     ++numberOfMessagesSent, numberOfMessages);
         }
